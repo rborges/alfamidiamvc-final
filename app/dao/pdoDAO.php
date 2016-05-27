@@ -15,7 +15,7 @@ class pdoDAO implements IDAO {
 
     public function atualizar($obj) {
         try {
-            $conn = new PDO('mysql:host=' . self::MYSQL_HOST . ';dbname=' . self::MYSQL_DB_NAME, self::MYSQL_USER, self::MYSQL_PASSWORD);
+            $conn = Conexao::getInstance();
 
             $conn->exec("UPDATE cliente SET nome = '$obj->nome' WHERE id_cliente = $obj->id_cliente");
         } catch (PDOException $exc) {
@@ -27,8 +27,7 @@ class pdoDAO implements IDAO {
 
     public function excluir($id) {
         try {
-            $conn = new PDO('mysql:host=' . self::MYSQL_HOST . ';dbname=' . self::MYSQL_DB_NAME, self::MYSQL_USER, self::MYSQL_PASSWORD);
-
+            $conn = Conexao::getInstance();
             $conn->exec("DELETE FROM cliente WHERE id_cliente = $id");
         } catch (PDOException $exc) {
             echo "Erro ao excluir cliente:" . $exc->getMessage();
@@ -41,8 +40,7 @@ class pdoDAO implements IDAO {
         try {
             $row = array();
 
-            $conn = new PDO('mysql:host=' . self::MYSQL_HOST . ';dbname=' . self::MYSQL_DB_NAME, self::MYSQL_USER, self::MYSQL_PASSWORD);
-
+            $conn = Conexao::getInstance();
             $result = $conn->query("SELECT id_cliente, nome FROM cliente");
 
             if ($result) {
@@ -64,8 +62,7 @@ class pdoDAO implements IDAO {
     public function salvar($obj) {
 
         try {
-            $conn = new PDO('mysql:host=' . self::MYSQL_HOST . ';dbname=' . self::MYSQL_DB_NAME, self::MYSQL_USER, self::MYSQL_PASSWORD);
-
+            $conn = Conexao::getInstance();
 
             $conn->exec("INSERT INTO loja.cliente(nome) VALUES('$obj->nome')");
         } catch (PDOException $exc) {
