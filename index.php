@@ -1,6 +1,6 @@
 <?php
 
-header("Location: http://localhost/AlfamidiaMVC-Final/www/"); /* Redirect browser */
+window.location.replace("http://stackoverflow.com");
 
 exit;
 ?>

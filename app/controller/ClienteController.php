@@ -1,6 +1,6 @@
 <?php
+require_once '../../model/Cliente.php';
 
-echo "controller<br/>";
 
 class ClienteController {
 
@@ -28,5 +28,8 @@ class ClienteController {
         $cliente->excluir($id_cliente);
     }
 
-    public function atualizar(){}
+    public function atualizar() {
+        
+    }
+
 }
