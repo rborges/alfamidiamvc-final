@@ -1,6 +1,6 @@
 <?php
 
-include_once './config.php';
+include_once 'C:/www/AlfamidiaMVC-Final/app/config/config.php';
 
 class Conexao {
 
@@ -8,6 +8,8 @@ class Conexao {
 
     public static function getInstance() {
         if (!isset(self::$instance)) {
+
+            echo 'conect';
             try {
 
                 self::$instance = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);

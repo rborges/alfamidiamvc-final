@@ -1,6 +1,7 @@
 <?php
 
-include_once 'IDAO.php';
+include_once 'C:/www/AlfamidiaMVC-Final/app/dao/IDAO.php';
+include_once 'C:/www/AlfamidiaMVC-Final/app/config/Conexao.php';
 
 class pdoDAO implements IDAO {
 

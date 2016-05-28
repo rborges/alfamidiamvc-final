@@ -1,6 +1,6 @@
 <?php
-require_once '../../model/Cliente.php';
 
+include_once 'C:/www/AlfamidiaMVC-Final/app/model/Cliente.php';
 
 class ClienteController {
 
@@ -11,7 +11,7 @@ class ClienteController {
 
         $_REQUEST['clientes'] = $clientes;
 
-        require_once './view/ClienteView.php';
+        include_once 'C:/www/AlfamidiaMVC-Final/www/index.php';
     }
 
     public function salvar($obj) {
@@ -19,7 +19,7 @@ class ClienteController {
         $cliente = new Cliente;
         $cliente->salvar($obj);
 
-        require_once './view/ClienteView.php';
+        include_once 'C:/www/AlfamidiaMVC-Final/www/index.php';
     }
 
     public function excluir($id_cliente) {

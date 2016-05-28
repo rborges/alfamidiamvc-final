@@ -1,8 +1,7 @@
 <?php
 
-echo "Model=> Cliente<br/>";
 
-include_once '../DAO/pdoDAO.php';
+include_once 'C:/www/AlfamidiaMVC-Final/app/DAO/pdoDAO.php';
 
 class Cliente implements IDAO {
 

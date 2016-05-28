@@ -1,13 +1,13 @@
 <?php
-require_once '../app/controller/ClienteController.php';
+include_once 'C:/www/AlfamidiaMVC-Final/app/controller/ClienteController.php';
 
-$clientes = "";
+
+$clienteController = new ClienteController();
+$clientes = $clienteController->listar();
 
 if (isset($_REQUEST['clientes'])) {
-    $clientes = $_REQUEST['clientes'];
 
-    $clienteController = new ClienteController();
-    $clienteController->listar();
+    $clientes = $_REQUEST['clientes'];
 }
 ?>
 <!DOCTYPE html>
@@ -23,10 +23,10 @@ if (isset($_REQUEST['clientes'])) {
         <section>
             <article>
                 <h1>Listagem</h1>
-<?php
-if ($clientes != "") {
-    if (count($clientes) > 0) {
-        ?>
+                <?php
+                if ($clientes != "") {
+                    if (count($clientes) > 0) {
+                        ?>
 
                         <hr/>
                         <table>
@@ -34,27 +34,27 @@ if ($clientes != "") {
                                 <th>ID</th>
                                 <th>Cliente</th>
                             </tr>
-        <?php
-        foreach ($clientes as $cliente) {
+                            <?php
+                            foreach ($clientes as $cliente) {
 
-            if ($cliente->nome != "") {
-                ?>
+                                if ($cliente->nome != "") {
+                                    ?>
 
                                     <tr>
                                         <td><?php echo $cliente->id_cliente; ?></td>
                                         <td><?php echo $cliente->nome; ?></td>
                                     </tr>
-                <?php
-            }
-        }
-    }
-    ?>
+                                    <?php
+                                }
+                            }
+                        }
+                        ?>
                     </table>
-                        <?php
-                    } else {
-                        echo '<hr><h4>Não há registros para listagem</h4><br/><hr> ';
-                    }
-                    ?>
+                    <?php
+                } else {
+                    echo '<hr><h4>Não há registros para listagem</h4><br/><hr> ';
+                }
+                ?>
             </article>
         </section>
         <section>
@@ -69,17 +69,17 @@ if ($clientes != "") {
                             <td><label for="id_cliente">Id Cliente</label><br/>
                                 <select id="id_cliente" name="id_cliente">
                                     <option selected="" value="0">SELECIONE</option>
-<?php
-foreach ($clientes as $cliente) {
+                                    <?php
+                                    foreach ($clientes as $cliente) {
 
-    if ($cliente->id_cliente >= 0) {
-        ?>
+                                        if ($cliente->id_cliente >= 0) {
+                                            ?>
 
                                             <option  value="<?php echo $cliente->id_cliente; ?>"><?php echo $cliente->id_cliente; ?></option>
-        <?php
-    }
-}
-?>
+                                            <?php
+                                        }
+                                    }
+                                    ?>
                                 </select>
                             </td>
                             <td>
